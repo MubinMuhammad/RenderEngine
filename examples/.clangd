@@ -1,0 +1,4 @@
+CompileFlags:
+  Add:
+    - "-I/home/bssm/Documents/C/Projects/RenderEngine/include/"
+    - "-I/home/bssm/Documents/C/Projects/RenderEngine/include/vendor/"
