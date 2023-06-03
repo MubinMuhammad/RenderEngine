@@ -1,1 +1,0 @@
-/sbin/cc CMakeFiles/Square.dir/examples/square.c.o -o Square  libRenderEngine.a -ldl -lGL -lglfw 
