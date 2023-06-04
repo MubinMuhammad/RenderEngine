@@ -1,2 +1,2 @@
-![alt text](https://github.com/MubinMuhammad/RenderEngine/readmeRES/Logo.png)
+![alt text](https://raw.githubusercontent.com/MubinMuhammad/RenderEngine/master/readmeRES/Logo.png)
 
