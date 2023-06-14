@@ -28,6 +28,7 @@ target_link_libraries(
   -ldl
   -lGL
   -lglfw
+  -lm
 )
 endif (UNIX)
 
