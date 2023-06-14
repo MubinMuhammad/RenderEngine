@@ -1,4 +1,0 @@
-/home/bssm/Documents/C/Projects/RenderEngine/build/CMakeFiles/RenderEngine.dir
-/home/bssm/Documents/C/Projects/RenderEngine/build/CMakeFiles/Square.dir
-/home/bssm/Documents/C/Projects/RenderEngine/build/CMakeFiles/edit_cache.dir
-/home/bssm/Documents/C/Projects/RenderEngine/build/CMakeFiles/rebuild_cache.dir
