@@ -1,2 +1,0 @@
-/sbin/ar qc libRenderEngine.a CMakeFiles/RenderEngine.dir/src/RE_gl_camera.c.o CMakeFiles/RenderEngine.dir/src/RE_gl_object.c.o CMakeFiles/RenderEngine.dir/src/RE_gl_shader.c.o CMakeFiles/RenderEngine.dir/src/RE_gl_window.c.o CMakeFiles/RenderEngine.dir/src/RE_linmath.c.o CMakeFiles/RenderEngine.dir/src/RE_timer.c.o CMakeFiles/RenderEngine.dir/src/glad.c.o
-/sbin/ranlib libRenderEngine.a
