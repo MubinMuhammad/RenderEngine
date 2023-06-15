@@ -24,6 +24,6 @@ typedef struct RE_camera {
 } RE_camera;
 
 RE_camera RE_camera_create();
-void      RE_camera_start(RE_camera *camera, RE_shader *shader, f32 fov, f32 aspect_ratio, f32 near, f32 far, RE_vec3 position);
+void      RE_camera_start(RE_camera *camera, RE_shader *shader);
 
 #endif

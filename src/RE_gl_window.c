@@ -1,5 +1,4 @@
 #include "RE_gl_window.h"
-#include "linmath.h"
 
 RE_window window;
 
