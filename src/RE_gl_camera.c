@@ -14,10 +14,15 @@ RE_camera RE_camera_create() {
   return camera;
 }
 
-void RE_camera_start(RE_camera *camera, RE_shader *shader) {
+void RE_camera_3d_start(RE_camera *camera, RE_shader *shader) {
   RE_mat4x4_translate(camera->view, camera->position[0], camera->position[1], camera->position[2]);
   RE_mat4x4_perspective(camera->proj, camera->fov, camera->aspect_ratio, camera->near, camera->far);
   
   glUniformMatrix4fv(glGetUniformLocation(shader->shader_program, "RE_view"), 1, GL_FALSE, (f32 *)&camera->view[0][0]);
   glUniformMatrix4fv(glGetUniformLocation(shader->shader_program, "RE_proj"), 1, GL_FALSE, (f32 *)&camera->proj[0][0]);
+}
+
+void RE_camera_2d_start(RE_camera *camera, RE_shader *shader, float left, float right, float bottom, float top, float near, float far) {
+  RE_mat4x4_ortho(camera->proj, left, right, bottom, top, near, far);
+  glUniformMatrix4fv(glGetUniformLocation(shader->shader_program,  "RE_proj"), 1, GL_FALSE, (f32 *)&camera->proj[0][0]);
 }

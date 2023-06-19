@@ -1,4 +1,7 @@
 #include "RE_gl_object.h"
+#include "RE_linmath.h"
+
+static RE_mat4x4 model;
 
 RE_object RE_object_create(
   f32 *vertices,
@@ -71,3 +74,7 @@ void RE_object_render(RE_object object, RE_shader shader) {
 	glDrawElements(GL_TRIANGLES, object.indices_size, GL_UNSIGNED_BYTE, 0);
 }
 
+void RE_object_move(RE_shader shader, float x, float y, float z) {
+  RE_mat4x4_translate(model, x, y, z);
+  glUniformMatrix4fv(glGetUniformLocation(shader.shader_program, "RE_model"), 1, GL_FALSE, (f32 *)&model[0][0]);
+}

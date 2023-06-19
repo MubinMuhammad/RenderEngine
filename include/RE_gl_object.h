@@ -31,5 +31,7 @@ RE_object RE_object_create(
 );
 
 void RE_object_render(RE_object object, RE_shader shader);
+void RE_object_move(RE_shader shader, float x, float y, float z);
+void RE_object_rotate();
 
 #endif
