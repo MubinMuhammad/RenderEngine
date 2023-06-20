@@ -5,4 +5,4 @@
     src="https://raw.githubusercontent.com/MubinMuhammad/RenderEngine/master/readme_res/Logo.png"> 
 </p>
 
-<h1>STILL IN DEVELOPMENT!</h1>
+<h1 align="center">STILL IN DEVELOPMENT!</h1>
