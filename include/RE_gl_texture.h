@@ -22,6 +22,7 @@ typedef struct RE_texture {
 } RE_texture;
 
 RE_texture RE_texture_create(const char *texture_path, RE_texture_type texture_type);
+void       RE_texture_bind(RE_texture texture, int texture_slot);
 void       RE_texture_terminate(RE_texture *texture);
 
 #endif

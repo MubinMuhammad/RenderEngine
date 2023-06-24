@@ -52,7 +52,7 @@ const char *texture_fragment_shader =
 "out vec4 out_color; \n"
 "in vec2 v_texture_coord; \n"
 
-"uniform sample2D image; \n"
+"uniform sampler2D image; \n"
 
 "void main() { \n"
 "  out_color = texture(image, v_texture_coord); \n"

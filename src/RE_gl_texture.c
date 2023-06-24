@@ -3,8 +3,9 @@
 #include "stb_image.h"
 
 RE_texture RE_texture_create(const char *texture_path, RE_texture_type texture_type) {
-  RE_texture texture;
+  stbi_set_flip_vertically_on_load(1);
 
+  RE_texture texture;
   texture.data = stbi_load(texture_path, &texture.width, 
                            &texture.height, &texture.color_channels, 
                            texture_type == RE_TEXTURE_JPG ||
@@ -40,6 +41,11 @@ RE_texture RE_texture_create(const char *texture_path, RE_texture_type texture_t
   stbi_image_free(texture.data);
   
   return texture;
+}
+
+void RE_texture_bind(RE_texture texture, int texture_slot) {
+  glActiveTexture(GL_TEXTURE0 + texture_slot);
+  glBindTexture(GL_TEXTURE_2D, texture.id);
 }
 
 void RE_texture_terminate(RE_texture *texture) {

@@ -5,7 +5,7 @@
   OpenGL is also not finished.
   But it is usable!
 
-  You can use the OpenGL API using '#define RE_API_GL'
+  You can use the OpenGL API using '#define RE_API_GL'.
   That might change soon.
 */
 
@@ -31,11 +31,11 @@ int main() {
   }
   
   // Having vertices for a quad to applay the texture on.
-  float quad_vertices[7 * 4] = {
-    -texture_width_normalized, texture_height_normalized, 0.0f,    1.0f, 0.0f, 0.0f, 1.0f,
-    -texture_width_normalized,-texture_height_normalized, 0.0f,    0.0f, 1.0f, 0.0f, 1.0f,
-     texture_width_normalized,-texture_height_normalized, 0.0f,    0.0f, 0.0f, 1.0f, 1.0f,
-     texture_width_normalized, texture_height_normalized, 0.0f,    1.0f, 1.0f, 1.0f, 1.0f,
+  float quad_vertices[5 * 4] = {
+    -texture_width_normalized, texture_height_normalized, 0.0f,    0.0f, 1.0f, 
+    -texture_width_normalized,-texture_height_normalized, 0.0f,    0.0f, 0.0f, 
+     texture_width_normalized,-texture_height_normalized, 0.0f,    1.0f, 0.0f, 
+     texture_width_normalized, texture_height_normalized, 0.0f,    1.0f, 1.0f 
   };
 
   // Having indices for the quad.
@@ -57,7 +57,7 @@ int main() {
 
   // Creating a quad object.
   RE_object quad = RE_object_create(quad_vertices, sizeof(quad_vertices), quad_indices, 
-                                    sizeof(quad_indices), true, false, 0);
+                                    sizeof(quad_indices), false, true, 0);
 
 
   RE_RENDER_LOOP(window) {
@@ -73,7 +73,7 @@ int main() {
     // Setting a position for that quad.
     RE_object_move(quad_shader, 0.0f, 0.0f, 0.0f);
     // Rendering that quad.
-    RE_object_render(quad, quad_shader);
+    RE_object_render_with_t(quad, quad_shader, texture, 0, "image");
 
     // Swapping the front frame with the back.
     RE_window_swap_frames(window);

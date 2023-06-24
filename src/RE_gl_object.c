@@ -78,8 +78,7 @@ void RE_object_render(RE_object object, RE_shader shader) {
 void RE_object_render_with_t(RE_object object, RE_shader shader, 
                              RE_texture texture, int texture_slot, 
                              const char *texture_name) {
-  glActiveTexture(GL_TEXTURE0 + texture_slot);
-  glBindTexture(GL_TEXTURE_2D, texture.id);
+  RE_texture_bind(texture, texture_slot);
   glUniform1i(glGetUniformLocation(shader.shader_program, texture_name), texture_slot);
 
 	glBindVertexArray(object.vao);
