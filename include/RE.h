@@ -6,6 +6,7 @@
   #include "RE_gl_shader.h"
   #include "RE_gl_object.h"
   #include "RE_gl_camera.h"
+  #include "RE_gl_texture.h"
   #include "RE_types.h"
 #elif RE_API_VULKAN
 #elif RE_API_DIRECTX

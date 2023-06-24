@@ -15,35 +15,53 @@ add_library(
 
 target_include_directories(
   RenderEngine PUBLIC
-  ${CMAKE_SOURCE_DIR}/include/vendor/
+  ${CMAKE_SOURCE_DIR}/vendor/
   ${CMAKE_SOURCE_DIR}/include/
 )
 
-add_executable(Square   ${CMAKE_SOURCE_DIR}/examples/square.c)
+add_executable(square   ${CMAKE_SOURCE_DIR}/examples/square.c)
+add_executable(texture   ${CMAKE_SOURCE_DIR}/examples/texture.c)
 
 if (UNIX)
 target_link_libraries(
-  Square PUBLIC
+  square PUBLIC
   ${CMAKE_SOURCE_DIR}/build/libRenderEngine.a
+  ${CMAKE_SOURCE_DIR}/lib/linux_wayland/libglfw3.a
+  -lwayland-client
   -ldl
   -lGL
-  -lglfw
+  -lm
+)
+target_link_libraries(
+  texture PUBLIC
+  ${CMAKE_SOURCE_DIR}/build/libRenderEngine.a
+  ${CMAKE_SOURCE_DIR}/lib/linux_wayland/libglfw3.a
+  -lwayland-client
+  -ldl
+  -lGL
   -lm
 )
 endif (UNIX)
 
 if (WIN32)
 target_link_libraries(
-  Square PUBLIC
+  square PUBLIC
   ${CMAKE_SOURCE_DIR}/build/libRenderEngine.a
   -ldl
   -lOpenGL32
   -lgdi32
+  ${CMAKE_SOURCE_DIR}/lib/libglfw3.a
 )
 endif (WIN32)
 
 target_include_directories(
-  Square PUBLIC
-  ${CMAKE_SOURCE_DIR}/include/vendor/
+  square PUBLIC
+  ${CMAKE_SOURCE_DIR}/vendor/
   ${CMAKE_SOURCE_DIR}/include/
 )
+target_include_directories(
+  texture PUBLIC
+  ${CMAKE_SOURCE_DIR}/vendor/
+  ${CMAKE_SOURCE_DIR}/include/
+)
+

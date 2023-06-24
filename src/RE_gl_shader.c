@@ -47,11 +47,57 @@ u32 RE_shader_load_from_file(const i8 *file_path, RE_shader_type shader_type) {
   glShaderSource(shader, 1, &file_contents_usable, NULL);
   glCompileShader(shader);
 
+  int shader_status;
+  glGetShaderiv(shader, GL_COMPILE_STATUS, &shader_status);
+
+  if (shader_status == GL_FALSE) {
+    int err_length;
+    glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &err_length);
+
+    char err[err_length];
+    glGetShaderInfoLog(shader, err_length, &err_length, err);
+
+    printf("Failed to compile %s shader %s", 
+           shader_type == RE_VERTEX_SHADER ? "vertex" : 
+           shader_type == RE_FRAGMENT_SHADER ? "fragment" : 0,
+           err);
+
+    exit(-1);
+  }
+
   return shader;
 }
 
 u32 RE_shader_load_from_code(const i8 *shader_code, RE_shader_type shader_type) {
-  return 0;
+  u32 shader;
+
+  if (shader_type == RE_VERTEX_SHADER)
+    shader = glCreateShader(GL_VERTEX_SHADER);
+  if (shader_type == RE_FRAGMENT_SHADER)
+    shader = glCreateShader(GL_FRAGMENT_SHADER);
+
+  glShaderSource(shader, 1, &shader_code, NULL);
+  glCompileShader(shader);
+
+  int shader_status;
+  glGetShaderiv(shader, GL_COMPILE_STATUS, &shader_status);
+
+  if (shader_status == GL_FALSE) {
+    int err_length;
+    glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &err_length);
+
+    char err[err_length];
+    glGetShaderInfoLog(shader, err_length, &err_length, err);
+
+    printf("__RENDER_ENGINE_%s_SHADER_ERROR: %s", 
+           shader_type == RE_VERTEX_SHADER ? "VERTEX" : 
+           shader_type == RE_FRAGMENT_SHADER ? "FRAGMENT" : 0,
+           err);
+
+    exit(-1);
+  }
+
+  return shader;
 }
 
 void RE_shader_program_create(RE_shader *shader) {
@@ -63,4 +109,8 @@ void RE_shader_program_create(RE_shader *shader) {
   glLinkProgram(shader->shader_program);
   glDeleteShader(shader->vertex_shader);
   glDeleteShader(shader->fragment_shader);
+}
+
+void RE_shader_terminate(RE_shader *shader) {
+  glDeleteShader(shader->shader_program);
 }

@@ -21,9 +21,10 @@ typedef struct RE_shader {
   
 } RE_shader;
 
-u32 RE_shader_load_from_file(const char *file_path, RE_shader_type shader_type);
-u32 RE_shader_load_from_code(const char *shader_code, RE_shader_type shader_type);
+u32  RE_shader_load_from_file(const char *file_path, RE_shader_type shader_type);
+u32  RE_shader_load_from_code(const char *shader_code, RE_shader_type shader_type);
 void RE_shader_program_create(RE_shader *shader);
+void RE_shader_terminate(RE_shader *shader);
 
 
 #endif
