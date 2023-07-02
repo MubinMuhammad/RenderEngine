@@ -8,6 +8,7 @@
   #include "RE_gl_camera.h"
   #include "RE_gl_texture.h"
   #include "RE_types.h"
+  #include "RE_timer.h"
 #elif RE_API_VULKAN
 #elif RE_API_DIRECTX
 #endif

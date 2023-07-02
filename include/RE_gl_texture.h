@@ -6,7 +6,8 @@
 typedef enum RE_texture_type {
   RE_TEXTURE_PNG,
   RE_TEXTURE_JPG,
-  RE_TEXTURE_TGA
+  RE_TEXTURE_TGA,
+  RE_TEXTURE_NULL
 } RE_texture_type;
 
 typedef struct RE_texture {

@@ -17,7 +17,7 @@
 
 int main() {
   // Creating a window.
-  RE_window *window = RE_window_create((RE_ivec2){600, 400},"RenderEngine", RE_WINDOW_RESIZABLE);
+  RE_window *window = RE_window_create(600, 400, "RenderEngine", RE_WINDOW_RESIZABLE);
   
   // loading a texture of a field.
   RE_texture texture = RE_texture_create("example.jpg", RE_TEXTURE_JPG);
@@ -25,7 +25,7 @@ int main() {
   // Normalizing the texture's width and height to window's width and height;
   int texture_width_normalized = texture.width;
   int texture_height_normalized = texture.height;
-  while (texture_width_normalized > window->size[0] && texture_height_normalized > window->size[1]) {
+  while (texture_width_normalized > window->width && texture_height_normalized > window->height) {
     texture_width_normalized /= 2;
     texture_height_normalized /= 2;
   }
@@ -46,7 +46,6 @@ int main() {
 
   // Creating a camera.
   RE_camera camera = RE_camera_create();
-
   // Loading the GLSL (may create a new shading language) shader for the quad. 
   // You have to run the program where the shaders
   // folder is located.
@@ -67,8 +66,8 @@ int main() {
     // Starting a 2d camera with orthographic projection.
     // (It makes it so that window's left, right, top, bottom are normalized with window's
     // width and height. By default OpenGL will set it to -1.0f, 1.0f range.)
-    RE_camera_2d_start(&camera, &quad_shader, -window->size[0], window->size[0], 
-                       -window->size[1], window->size[1], -1.0f, 1.0f);
+    RE_camera_2d_start(&camera, &quad_shader, -window->width, window->width, 
+                       -window->height, window->height, -1.0f, 1.0f);
 
     // Setting a position for that quad.
     RE_object_move(quad_shader, 0.0f, 0.0f, 0.0f);

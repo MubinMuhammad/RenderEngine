@@ -17,7 +17,7 @@
 
 int main() {
   // Creating a window
-  RE_window *window = RE_window_create((RE_ivec2){600, 400},"RenderEngine", RE_WINDOW_RESIZABLE);
+  RE_window *window = RE_window_create(600, 400, "RenderEngine", RE_WINDOW_RESIZABLE);
   
   // Having vertices for a square.
   float square_vertices[7 * 4] = {
@@ -56,8 +56,8 @@ int main() {
     // Starting a 2d camera with orthographic projection.
     // (It makes it so that window's left, right, top, bottom are normalized with window's
     // width and height. By default OpenGL will set it to -1.0f, 1.0f range.)
-    RE_camera_2d_start(&camera, &square_shader, -window->size[0], window->size[0], 
-                       -window->size[1], window->size[1], -1.0f, 1.0f);
+    RE_camera_2d_start(&camera, &square_shader, -window->width, window->width, 
+                       -window->height, window->height, -1.0f, 1.0f);
 
     // Setting a position for that square.
     RE_object_move(square_shader, 0.0f, 0.0f, 0.0f);

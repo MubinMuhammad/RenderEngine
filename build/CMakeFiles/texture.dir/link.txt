@@ -1,0 +1,1 @@
+/sbin/cc CMakeFiles/texture.dir/examples/texture.c.o -o texture  libRenderEngine.a /home/bssm/Documents/C/Projects/RenderEngine/lib/linux_wayland/libglfw3.a -lwayland-client -ldl -lGL -lm 

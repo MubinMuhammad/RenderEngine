@@ -3,14 +3,14 @@
 RE_window window;
 
 static void RE_callback_frame_buffer_size(GLFWwindow *window_id, i32 width, i32 height) {
-  window.size[0] = width;
-  window.size[1] = height;
+  window.width = width;
+  window.height = height;
   glViewport(0, 0, width, height);
 }
 
-RE_window *RE_window_create(RE_ivec2 size, const i8 *title, RE_window_mode window_mode) {
-  window.size[0] = size[0];
-  window.size[1] = size[1];
+RE_window *RE_window_create(int width, int height, const i8 *title, RE_window_mode window_mode) {
+  window.width = width;
+  window.height = height;
   window.title = title;
 
   if (!glfwInit()) {
@@ -30,9 +30,9 @@ RE_window *RE_window_create(RE_ivec2 size, const i8 *title, RE_window_mode windo
   #endif
 
   if (window_mode == RE_WINDOW_FULLSCREEN)
-    window.id = glfwCreateWindow(size[0], size[1], title, glfwGetPrimaryMonitor(), NULL);
+    window.id = glfwCreateWindow(width, height, title, glfwGetPrimaryMonitor(), NULL);
   else 
-    window.id = glfwCreateWindow(size[0], size[1], title, NULL, NULL);
+    window.id = glfwCreateWindow(width, height, title, NULL, NULL);
 
   glfwMakeContextCurrent(window.id);
 
