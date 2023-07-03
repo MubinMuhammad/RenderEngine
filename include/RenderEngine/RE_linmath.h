@@ -1,6 +1,10 @@
 #ifndef RE_LINMATH_H
 #define RE_LINMATH_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <math.h>
 #include <string.h>
 
@@ -82,5 +86,9 @@ void  RE_mat4x4_from_quat (RE_mat4x4 M, RE_quat const q);
 void  RE_mat4x4o_mul_quat (RE_mat4x4 R, RE_mat4x4 const M, RE_quat const q);
 void  RE_quat_from_mat4x4 (RE_quat q, RE_mat4x4 const M);
 void  RE_mat4x4_arcball   (RE_mat4x4 R, RE_mat4x4 const M, RE_vec2 const _a, RE_vec2 const _b, float s);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

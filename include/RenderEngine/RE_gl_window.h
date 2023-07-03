@@ -1,10 +1,14 @@
 #ifndef RE_WINDOW_H
 #define RE_WINDOW_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include "glad/glad.h"
 #include "RE_types.h"
 
-#include <GLFW/glfw3.h>
+#include "GLFW/glfw3.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -29,5 +33,9 @@ RE_window *RE_window_create(int width, int height, const char *title, RE_window_
 void RE_window_background_color(f32 r, f32 g, f32 b); 
 void RE_window_terminate(RE_window *window);
 void RE_window_swap_frames(RE_window *window);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

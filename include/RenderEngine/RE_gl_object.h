@@ -1,6 +1,10 @@
 #ifndef RE_OBJECT_H
 #define RE_OBJECT_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include "glad/glad.h"
 #include <GLFW/glfw3.h>
 
@@ -32,5 +36,9 @@ void RE_object_render_with_t(RE_object object, RE_shader shader,
 void RE_object_move(RE_shader shader, float x, float y, float z);
 void RE_object_rotate();
 void RE_object_terminate(RE_object *object);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

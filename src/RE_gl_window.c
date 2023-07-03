@@ -47,7 +47,6 @@ RE_window *RE_window_create(int width, int height, const i8 *title, RE_window_mo
     glfwTerminate();
     exit(-1);
   }
-
   
   glfwSetFramebufferSizeCallback(window.id, RE_callback_frame_buffer_size);
   

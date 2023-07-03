@@ -1,6 +1,10 @@
 #ifndef RE_CAMERA_H
 #define RE_CAMERA_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include "glad/glad.h"
 
 #include <GLFW/glfw3.h>
@@ -26,5 +30,9 @@ typedef struct RE_camera {
 RE_camera RE_camera_create();
 void      RE_camera_3d_start(RE_camera *camera, RE_shader *shader);
 void      RE_camera_2d_start(RE_camera *camera, RE_shader *shader, float left, float right, float bottom, float top, float near, float far); 
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

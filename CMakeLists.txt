@@ -5,7 +5,7 @@ file(
   GLOB_RECURSE
   lib_files
   ${CMAKE_SOURCE_DIR}/src/*.c
-  ${CMAKE_SOURCE_DIR}/include/*.h
+  ${CMAKE_SOURCE_DIR}/include/RenderEngine/*.h
 )
 
 add_library(
@@ -16,7 +16,7 @@ add_library(
 target_include_directories(
   RenderEngine PUBLIC
   ${CMAKE_SOURCE_DIR}/vendor/
-  ${CMAKE_SOURCE_DIR}/include/
+  ${CMAKE_SOURCE_DIR}/include/RenderEngine/
 )
 
 add_executable(square   ${CMAKE_SOURCE_DIR}/examples/square.c)
@@ -57,11 +57,11 @@ endif (WIN32)
 target_include_directories(
   square PUBLIC
   ${CMAKE_SOURCE_DIR}/vendor/
-  ${CMAKE_SOURCE_DIR}/include/
+  ${CMAKE_SOURCE_DIR}/include/RenderEngine/
 )
 target_include_directories(
   texture PUBLIC
   ${CMAKE_SOURCE_DIR}/vendor/
-  ${CMAKE_SOURCE_DIR}/include/
+  ${CMAKE_SOURCE_DIR}/include/RenderEngine/
 )
 

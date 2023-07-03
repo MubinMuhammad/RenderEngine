@@ -1,0 +1,1 @@
+/sbin/cc CMakeFiles/square.dir/examples/square.c.o -o square  libRenderEngine.a /home/bssm/Documents/C/Projects/RenderEngine/lib/linux_wayland/libglfw3.a -lwayland-client -ldl -lGL -lm 

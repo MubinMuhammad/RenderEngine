@@ -1,6 +1,10 @@
 #ifndef RE_SHADER_H
 #define RE_SHADER_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include "glad/glad.h"
 #include "RE_types.h"
 
@@ -26,5 +30,8 @@ u32  RE_shader_load_from_code(const char *shader_code, RE_shader_type shader_typ
 void RE_shader_program_create(RE_shader *shader);
 void RE_shader_terminate(RE_shader *shader);
 
+#ifdef __cplusplus
+}
+#endif
 
 #endif

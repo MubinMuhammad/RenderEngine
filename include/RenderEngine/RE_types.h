@@ -1,6 +1,10 @@
 #ifndef RE_TYPES_H
 #define RE_TYPES_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef int                      i32;
 typedef short int                i16;
 typedef long long int            i64;
@@ -22,5 +26,9 @@ typedef float RE_quat  [4];
 typedef float RE_mat4x4[4][4];
 typedef float RE_mat3x3[3][3];
 typedef float RE_mat2x2[2][2];
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif
